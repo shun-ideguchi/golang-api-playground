@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  go:
+    volumes:
+      - ./app/:/app/
+    working_dir: /app
+    tty: true
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+    ports:
+      - 127.0.0.2:2345:2345
+    container_name: go-api
